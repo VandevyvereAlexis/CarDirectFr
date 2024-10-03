@@ -55,7 +55,7 @@ return new class extends Migration
             $table->enum('etat', [
                 'Sans_frais_à_Prévoir',
                 'Roulante_Réparations_Nécessaires',
-                'Non Roulante_Réparation_Obligatoire',
+                'Non_Roulante_Réparation_Obligatoire',
                 'Accidenté',
                 'Pour_Pièces'
             ]);
