@@ -22,7 +22,7 @@ return new class extends Migration
             $table->char('code_postal', 5);
             $table->string('ville', 100);
             $table->integer('cv_fiscaux');
-            $table->integer('cv_din');
+            $table->integer('ch_din');
             $table->integer('kilometrage');
             $table->year('annee');
             $table->boolean('statut');
