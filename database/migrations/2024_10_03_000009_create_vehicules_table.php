@@ -15,7 +15,7 @@ return new class extends Migration
         {
             $table->id();
             $table->string('titre', 70);
-            $table->decimal('prix', 5, 2);
+            $table->decimal('prix', 9, 2);
             $table->string('image', 100)->default('defaultVehicule.jpg');
             $table->text('description', 2500);
             $table->string('departement', 100);
