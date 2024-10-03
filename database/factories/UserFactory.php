@@ -24,11 +24,15 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'nom'               => fake()->lastName(),
+            'prenom'            => fake()->firstName(),
+            'pseudo'            => fake()->unique()->userName(),
+            'numero'            => $this->generateFrenchMobileNumber(),
+            'image'             => 'defaultUser.jpg',
+            'email'             => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'password'          => static::$password ??= Hash::make('password'),
+            'remember_token'    => Str::random(10),
         ];
     }
 
@@ -40,5 +44,13 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    private function generateFrenchMobileNumber(): string
+    {
+        $prefix = rand(0, 1) === 0 ? '06' : '07';
+        $number = str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+
+        return $prefix . $number;
     }
 }
