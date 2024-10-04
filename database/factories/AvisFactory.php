@@ -18,10 +18,10 @@ class AvisFactory extends Factory
     public function definition(): array
     {
         return [
-            'commentaire'   => $this->faker->sentence(),
-            'note'          => $this->faker->numberBetween(1, 5),
-            'user1_id'     => $this->faker->optional()->randomElement(User::pluck('id')->toArray()), 
-            'user2_id'     => $this->faker->optional()->randomElement(User::pluck('id')->toArray()),
+            'commentaire' => $this->faker->sentence(),
+            'note'        => $this->faker->numberBetween(1, 5),
+            'user1_id'    => $this->faker->optional()->randomElement(User::pluck('id')->toArray()),
+            'user2_id'    => $this->faker->optional()->randomElement(User::pluck('id')->toArray()),
         ];
     }
 }
