@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('titre', 70);
             $table->decimal('prix', 9, 2);
             $table->string('image', 100)->default('defaultVehicule.jpg');
-            $table->text('description', 2500);
+            $table->text('description');
             $table->string('departement', 100);
             $table->char('code_postal', 5);
             $table->string('ville', 100);
