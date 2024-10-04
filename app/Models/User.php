@@ -17,9 +17,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nom',
+        'prenom',
+        'pseudo',
+        'numero',
+        'image',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -43,5 +48,32 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /*
+     * Récupère le rôle associé à cet utilisateur.
+     * Relation avec Role (un utilisateur a un rôle).
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /*
+     * Récupère les messages envoyés par cet utilisateur.
+     * Relation avec Message (un utilisateur peut envoyer plusieurs messages).
+     */
+    public function avis()
+    {
+        return $this->hasMany(Avis::class, 'user1_id');
+    }
+
+    /*
+     * Récupère les véhicules favoris de cet utilisateur.
+     * Relation avec Favori (un utilisateur peut avoir plusieurs favoris).
+     */
+    public function favoris()
+    {
+        return $this->hasMany(Favoris::class);
     }
 }
